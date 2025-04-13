@@ -29,7 +29,7 @@ mongo_client = MongoClient("mongodb://localhost:27017/")
 db = mongo_client["news_db"]
 collection = db["articles"]
 
-# Step 2: News search
+# News search
 def fetch_news_links(query):
     response = api.latest_api(q=query,country="us", language = "en",)    
     return response['results']
@@ -128,7 +128,7 @@ def extract_info_from_html(source_url: str) -> dict:
 
     return result
 
-# Step 4: MongoDB storage
+# Local MongoDB storage
 def store_in_mongodb(doc):
     existing = collection.find_one({"url": doc["url"]})
     if not existing:

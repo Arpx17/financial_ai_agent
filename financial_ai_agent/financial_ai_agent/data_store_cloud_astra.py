@@ -26,12 +26,9 @@ embeddings = HuggingFaceEmbeddings(
 ASTRA_DB_TOKEN = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
 ASTRA_DB_ENDPOINT =  os.getenv("ASTRA_DB_ENDPOINT")
 
-
-
-
 GEMINI_API_KEY =  os.getenv("GEMINI_API_KEY")
 
-llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash-001",api_key = GEMINI_API_KEY)
+LLM = ChatGoogleGenerativeAI(model="gemini-2.0-flash-001",api_key = GEMINI_API_KEY)
 
 class DataProcessor:
     def __init__(self):
