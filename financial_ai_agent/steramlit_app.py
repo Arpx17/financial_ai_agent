@@ -15,7 +15,8 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.output_parsers.json import SimpleJsonOutputParser
 from langchain_core.messages.tool import ToolCall
 import torch
-torch.classes.__path__ = []
+import os
+torch.classes.__path__ = [os.path.join(torch.__path__[0], torch.classes.__file__)] 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -79,8 +80,8 @@ def init_session_state():
         st.session_state.app = None
     if "simple_rag_chain" not in st.session_state:
         st.session_state.simple_rag_chain = None
-    if "show_thinking" not in st.session_state:
-        st.session_state.show_thinking = False
+    if "max_research_steps" not in st.session_state:
+        st.session_state.max_research_steps = 3
     if "sidebar_updated" not in st.session_state:
         st.session_state.sidebar_updated = False
     if "answer" not in st.session_state:
@@ -152,7 +153,7 @@ def render_sidebar():
             st.session_state.action_history = []
             st.session_state.rag_state = RAGState(question="")
             st.success("Chat history cleared!")
-            
+        st.session_state.max_research_steps = st.slider("Max Research Steps", 1, 10, 3)
         
             
 
@@ -240,7 +241,7 @@ async def deep_search(question: str):
         question=question,
         user_conversation_history=st.session_state.chat_history[-10:],
         research_steps=0,
-        max_research_steps=3
+        max_research_steps=st.session_state.max_research_steps
     )
     
     initial_state = {
