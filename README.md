@@ -35,30 +35,12 @@ This system implements a two-layer hierarchical approach:
    ```
 3. Create a `.env` file with your API keys:
    ```
-   ASTRA_DB_TOKEN=your_astra_token
-   ASTRA_DB_API_ENDPOINT=your_astra_endpoint
-   OPENAI_API_KEY=your_openai_key
+    GEMINI_API_KEY=your_api_key
+    NEWSDATA_API_KEY=your_api_key
+    MONGO_DB_KEY=your_key
+    ASTRA_DB_APPLICATION_TOKEN = your_astra_db_token
+    ASTRA_DB_ENDPOINT = your_astra_db_endpoint
    ```
-
-<!--## Usage-->
-
-<!--### Data Ingestion-->
-
-<!--```bash-->
-<!--python main.py ingest /path/to/data.json-->
-<!--```-->
-
-<!--### Asking Questions-->
-
-<!--```bash-->
-<!--python main.py ask "What is the main topic discussed in the documents?"-->
-<!--```-->
-
-<!--### Interactive Mode-->
-
-<!--```bash-->
-<!--python main.py interactive-->
-<!--```-->
 
 ## Scraped Data Format
 
