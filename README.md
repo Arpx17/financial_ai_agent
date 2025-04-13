@@ -142,14 +142,14 @@ A context-aware AI agent that dynamically retrieves information and generates ac
 
 ## Overview
 
-Custom Named Entity Recognition (NER) model built by fine-tuning LLaMA3.2-1B on synthetic_pii_finance_multilingual datasets. \
+Custom Named Entity Recognition (NER) model built by fine-tuning Llama 3.2-1B on synthetic_pii_finance_multilingual datasets. \
 [Finetuned Model](https://huggingface.co/Arpx22/llama-3.2-1B-Finetuned-ner-finance/tree/main)
 
 ## Model Specifications
 
 ### Base Architecture
 
-- **Foundation Model**: LLaMA3-21B
+- **Foundation Model**: Llama 3.2-1B
 - **Modifications**:
   - Added custom loss function
   - used unsloth for finetuing
